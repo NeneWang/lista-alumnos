@@ -18,12 +18,13 @@ Una lista de alumnos dada una lista json.
 
 
 ```
-ng build --configuration=production --base-href "https://nenewang.github.io/algo-page-angular/"
+ng build --configuration=production --base-href "https://nenewang.github.io/lista-alumnos/"
 sudo npm install -g angular-cli-ghpages
 ngh --dir dist/lista-alumnos
 
-ng add @angular-eslint/schematics@16
-ng deploy
+npx angular-cli-ghpages --dir=dist/lista-alumnos
+
+
 ```
 
 Deployed at:
