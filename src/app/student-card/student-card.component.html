@@ -7,7 +7,8 @@
       <p class="card-text">Major: {{ student.major }}</p>
 
       <p *ngIf="student.minor" class="card-text">Minor: {{ student.minor }}</p>
-      <p *ngIf="student.average != 0" class="card-text">Credits: {{ student.credits }}</p>
+      <p *ngIf="student.average != 0" class="card-text">Credits: {{ student.credits }}  </p>
+      <p>Seniority: {{student.credits | academicStatus}}</p>
     </div>
   </div>
   

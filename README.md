@@ -2,6 +2,8 @@
 
 
 ![](./img/2023-09-27-21-01-38.png)
+![](./img/2023-09-27-21-34-01.png)
+
 
 Una lista de alumnos dada una lista json.
 
@@ -12,6 +14,7 @@ Una lista de alumnos dada una lista json.
 - Minor no aparece si no existe
 - Credits no aparece si no existe
 - Se puede agregar nuevos estudiantes
+- Automaticamente incluye la senioridad usando pipes
 
 
 ## Deployment

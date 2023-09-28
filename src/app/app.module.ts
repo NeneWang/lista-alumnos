@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { StudentCardComponent } from './student-card/student-card.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserFormComponent } from './user-form/user-form.component';
+import { AcademicStatusPipe } from './academic-status.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentCardComponent,
-    UserFormComponent
+    UserFormComponent,
+    AcademicStatusPipe
   ],
   imports: [
     BrowserModule,
