@@ -27,9 +27,9 @@ export class UserFormComponent implements OnInit{
     this.userForm = this.fb.group({
       name: ['', Validators.required],
       major: ['', Validators.required],
-      minor: [''],
-      credits: [0],
-      average: [0],
+      minor: ['', [Validators.minLength(3)]],
+      credits: [0, Validators.required],
+      average: [0, [Validators.required, Validators.max(10), Validators.min(0)]],
 
     });
   }
