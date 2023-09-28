@@ -28,7 +28,7 @@ export class UserFormComponent implements OnInit{
       name: ['', Validators.required],
       major: ['', Validators.required],
       minor: [''],
-      credits: [''],
+      credits: [0],
       average: [0],
 
     });
