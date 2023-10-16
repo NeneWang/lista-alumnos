@@ -20,12 +20,18 @@ export class StudentListComponent {
     this.dataSource = new MatTableDataSource(this.students);
   }
 
+  // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
   ngOnChanges(changes: SimpleChanges) {
     if(changes['students'] && changes['students'].currentValue) {
       this.dataSource = new MatTableDataSource(this.students);
     }
   }
 
+  addStudent() {
+
+    this.dataSource._updateChangeSubscription();
+  }
+  
   editStudent(student: Student) {
     this.editStudentEvent.emit(student);
     this.dataSource._updateChangeSubscription();
@@ -37,6 +43,14 @@ export class StudentListComponent {
     this.deleteStudentEvent.emit(student);
     this.dataSource._updateChangeSubscription();
   }
+
+  onStudentAdded(student: Student) {
+    // Add the new student to the data source
+    this.dataSource.data.push(student);
+    this.dataSource._updateChangeSubscription(); // Manually trigger data source update
+  }
+
+
 }
 
 

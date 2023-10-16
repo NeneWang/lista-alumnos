@@ -28,8 +28,6 @@ export class CourseFormComponent {
       this.courseAdd.emit(this.courseForm.value);
     }
   }
-
-
 }
 
 

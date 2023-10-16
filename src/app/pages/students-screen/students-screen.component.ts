@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { StudentListComponent } from 'src/app/student-list/student-list.component';
 
 @Component({
   selector: 'app-students-screen',
@@ -32,14 +33,20 @@ export class StudentsScreenComponent {
       "credits": "75"
     }
   ]
+//  @ViewChild('childRef', { static: false }) childComponent: ChildComponent;
+
+  @ViewChild('studentList', { static: false }) studentList: StudentListComponent | undefined;
 
   onStudentAdded(student: Student) {
-    this.students.unshift(student);
+    this.students = [student, ...this.students];
+    console.log("New len of sutdnets", this.students.length)
+    this.studentList?.addStudent();
   }
 
   editStudent(student: Student) {
     // TODO
     console.log('Editing student:', student);
+
   }
 
   deleteStudent(student: Student) {

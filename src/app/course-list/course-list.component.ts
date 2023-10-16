@@ -26,7 +26,9 @@ export class CourseListComponent {
 
   }
 
-
+  addCourse() {
+    this.dataSource._updateChangeSubscription();
+  }
 
   editCourse(course: Course) {
     this.editCourseEvent.emit(course);

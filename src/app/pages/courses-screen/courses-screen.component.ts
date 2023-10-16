@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { CourseListComponent } from './../../course-list/course-list.component';
+
 
 @Component({
   selector: 'app-courses-screen',
@@ -26,9 +28,12 @@ export class CoursesScreenComponent {
 
   ]
 
+  @ViewChild('courseList', { static: false }) courseList: CourseListComponent | undefined;
 
   onCourseAdded(course: Course) {
     this.courses.unshift(course);
+    this.courseList?.addCourse();
+
   }
 
   editCourse(course: Course) {
