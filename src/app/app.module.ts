@@ -14,11 +14,18 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTableModule } from '@angular/material/table';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
+
+
+
 import { NavbarComponent } from './navbar/navbar.component';
 import { AboutScreenComponent } from './pages/about-screen/about-screen.component';
 import { StudentsScreenComponent } from './pages/students-screen/students-screen.component';
 import { CoursesScreenComponent } from './pages/courses-screen/courses-screen.component';
 import { HomeScreenComponent } from './pages/home-screen/home-screen.component';
+import { StudentListComponent } from './student-list/student-list.component';
+import { CourseFormComponent } from './course-form/course-form.component';
 
 
 @NgModule({
@@ -32,7 +39,9 @@ import { HomeScreenComponent } from './pages/home-screen/home-screen.component';
     AboutScreenComponent,
     StudentsScreenComponent,
     CoursesScreenComponent,
-    HomeScreenComponent
+    HomeScreenComponent,
+    StudentListComponent,
+    CourseFormComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +50,9 @@ import { HomeScreenComponent } from './pages/home-screen/home-screen.component';
     ReactiveFormsModule,
     MatButtonModule,
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatTableModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 interface Student {
@@ -16,7 +16,7 @@ interface Student {
 })
 
 
-export class UserFormComponent implements OnInit{
+export class UserFormComponent {
 
   
   userForm: FormGroup;
@@ -34,9 +34,7 @@ export class UserFormComponent implements OnInit{
     });
   }
 
-  ngOnInit(): void {
-
-  }
+  
 
   // @Output() counterChange: EventEmitter<number> = new EventEmitter<number>();
   @Output() studentChange: EventEmitter<Student> = new EventEmitter<Student>();

@@ -34,8 +34,20 @@ export class StudentsScreenComponent {
   ]
 
   onStudentAdded(student: Student) {
-    // Shift into studnets
     this.students.unshift(student);
+  }
+
+  editStudent(student: any) {
+    // TODO
+    console.log('Editing student:', student);
+  }
+
+  deleteStudent(student: any) {
+    // TODO 
+    const index = this.students.indexOf(student);
+    if (index !== -1) {
+      this.students.splice(index, 1);
+    }
   }
 }
 
