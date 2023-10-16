@@ -10,23 +10,26 @@ import { StudentListComponent } from 'src/app/student-list/student-list.componen
 export class StudentsScreenComponent {
 
   title = 'lista-alumnos';
-  students = [
+  students: Student[] = [
     {
-      "name": "John Doe",
+      "name": "John",
+      "lastName": "Doe",
       "average": "9.2",
       "major": "Computer Science",
       "minor": "Mathematics",
       "credits": "120"
     },
     {
-      "name": "Jane Smith",
+      "name": "Jane",
+      "lastName": "Doe",
       "average": "8.7",
       "major": "Biology",
       "minor": "Chemistry",
       "credits": "90"
     },
     {
-      "name": "Michael Johnson",
+      "name": "Michael",
+      "lastName": "Johnson",
       "average": "7.5",
       "major": "History",
       "minor": "Political Science",
@@ -62,6 +65,7 @@ export class StudentsScreenComponent {
 
 interface Student {
   name: string;
+  lastName: string;
   average: string;
   major: string;
   minor: string;

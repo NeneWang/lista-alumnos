@@ -16,6 +16,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 
@@ -27,6 +30,7 @@ import { HomeScreenComponent } from './pages/home-screen/home-screen.component';
 import { StudentListComponent } from './student-list/student-list.component';
 import { CourseFormComponent } from './course-form/course-form.component';
 import { CourseListComponent } from './course-list/course-list.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 @NgModule({
@@ -43,7 +47,8 @@ import { CourseListComponent } from './course-list/course-list.component';
     HomeScreenComponent,
     StudentListComponent,
     CourseFormComponent,
-    CourseListComponent
+    CourseListComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +59,9 @@ import { CourseListComponent } from './course-list/course-list.component';
     MatToolbarModule,
     MatSidenavModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    MatListModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

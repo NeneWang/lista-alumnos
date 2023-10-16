@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 interface Student {
   name: string;
+  lastName: string;
   average: string;
   major: string;
   minor: string;
@@ -26,6 +27,7 @@ export class UserFormComponent {
   constructor(private fb: FormBuilder) {
     this.userForm = this.fb.group({
       name: ['', Validators.required],
+      lastName: ['', Validators.required],
       major: ['', Validators.required],
       minor: ['', [Validators.minLength(3)]],
       credits: [0, Validators.required],

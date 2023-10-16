@@ -57,6 +57,7 @@ export class StudentListComponent {
 
 interface Student {
   name: string;
+  lastName: string;
   average: string;
   major: string;
   minor: string;
