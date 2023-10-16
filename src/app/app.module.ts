@@ -31,6 +31,9 @@ import { StudentListComponent } from './student-list/student-list.component';
 import { CourseFormComponent } from './course-form/course-form.component';
 import { CourseListComponent } from './course-list/course-list.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { FullNamePipe } from './full-name.pipe';
+import { Font20Directive } from './font20.directive';
+import { UserEditFormComponent } from './user-edit-form/user-edit-form.component';
 
 
 @NgModule({
@@ -49,6 +52,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     CourseFormComponent,
     CourseListComponent,
     SidebarComponent,
+    FullNamePipe,
+    Font20Directive,
+    UserEditFormComponent,
   ],
   imports: [
     BrowserModule,

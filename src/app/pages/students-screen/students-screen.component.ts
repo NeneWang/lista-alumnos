@@ -10,6 +10,7 @@ import { StudentListComponent } from 'src/app/student-list/student-list.componen
 export class StudentsScreenComponent {
 
   title = 'lista-alumnos';
+
   students: Student[] = [
     {
       "name": "John",
@@ -36,6 +37,15 @@ export class StudentsScreenComponent {
       "credits": "75"
     }
   ]
+
+  selectedStudent?: Student = {
+    "name": "Michael",
+    "lastName": "Johnson",
+    "average": "7.5",
+    "major": "History",
+    "minor": "Political Science",
+    "credits": "75"
+  };
 //  @ViewChild('childRef', { static: false }) childComponent: ChildComponent;
 
   @ViewChild('studentList', { static: false }) studentList: StudentListComponent | undefined;

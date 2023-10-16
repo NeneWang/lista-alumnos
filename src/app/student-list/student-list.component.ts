@@ -13,11 +13,12 @@ export class StudentListComponent {
   @Output() editStudentEvent = new EventEmitter<Student>();
   @Output() deleteStudentEvent = new EventEmitter<Student>();
 
-  displayedColumns: string[] = ['name', 'average', 'major', 'minor', 'actions'];
+  displayedColumns: string[] = ['fullname', 'average', 'major', 'minor', 'actions'];
   dataSource: MatTableDataSource<Student>;
 
   constructor() {
     this.dataSource = new MatTableDataSource(this.students);
+    
   }
 
   // eslint-disable-next-line @angular-eslint/use-lifecycle-interface

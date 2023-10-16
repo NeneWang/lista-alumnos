@@ -1,12 +1,13 @@
 <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-  <ng-container matColumnDef="name">
-    <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
-    <mat-cell *matCellDef="let student">{{ student.name }}</mat-cell>
+  <ng-container matColumnDef="fullname">
+    <mat-header-cell *matHeaderCellDef>Full Name</mat-header-cell>
+    <mat-cell *matCellDef="let student">{{ student | fullName }}</mat-cell>
   </ng-container>
   
   <ng-container matColumnDef="major">
     <mat-header-cell *matHeaderCellDef>major</mat-header-cell>
     <mat-cell *matCellDef="let student">{{ student.major }}</mat-cell>
+    <!-- <ingit coa  -->
   </ng-container>
 
   
@@ -24,9 +25,6 @@
   <ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
     <mat-cell *matCellDef="let student">
-      <!-- <button mat-icon-button (click)="editStudent(student)">
-        <mat-icon>edit</mat-icon>
-      </button> -->
       <button mat-icon-button (click)="deleteStudent(student)">
         <mat-icon>delete</mat-icon>
       </button>
