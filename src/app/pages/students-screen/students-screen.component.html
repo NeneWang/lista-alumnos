@@ -1,0 +1,8 @@
+<!-- List of student cards -->
+
+<app-user-form
+(studentChange)="onStudentAdded($event)"
+></app-user-form>
+<div>
+  <app-student-card *ngFor="let student of students" [student]="student"></app-student-card>
+</div>
