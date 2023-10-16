@@ -18,7 +18,7 @@ export class CourseFormComponent {
       name: ['', Validators.required],
       course_number: ['', Validators.required],
       major: ['', Validators.required],
-      credits: [0, Validators.required],
+      credits: [3, Validators.required],
       description: ['']
     });
   }
@@ -36,5 +36,7 @@ export class CourseFormComponent {
 interface Course {
   name: string;
   major: string;
+  course_number: string;
   credits: number;
+  description: string;
 }

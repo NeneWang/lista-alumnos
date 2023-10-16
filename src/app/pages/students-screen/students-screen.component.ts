@@ -37,12 +37,12 @@ export class StudentsScreenComponent {
     this.students.unshift(student);
   }
 
-  editStudent(student: any) {
+  editStudent(student: Student) {
     // TODO
     console.log('Editing student:', student);
   }
 
-  deleteStudent(student: any) {
+  deleteStudent(student: Student) {
     // TODO 
     const index = this.students.indexOf(student);
     if (index !== -1) {

@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class CoursesScreenComponent {
 
+
   exampleCourses: Course[] = [
     {
       'name': 'Introduction to Computer Science',
@@ -24,6 +25,22 @@ export class CoursesScreenComponent {
     }
 
   ]
+
+
+  onCourseAdded(course: Course) {
+    this.exampleCourses.unshift(course);
+  }
+
+  editCourse(course: Course) {
+    console.log('Editing course:', course);
+  }
+
+  deleteCourse(course: Course) {
+    const index = this.exampleCourses.indexOf(course);
+    if (index !== -1) {
+      this.exampleCourses.splice(index, 1);
+    }
+  }
 
 }
 
