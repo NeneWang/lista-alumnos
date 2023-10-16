@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class CoursesScreenComponent {
 
 
-  exampleCourses: Course[] = [
+  courses: Course[] = [
     {
       'name': 'Introduction to Computer Science',
       'major': 'Computer Science',
@@ -28,7 +28,7 @@ export class CoursesScreenComponent {
 
 
   onCourseAdded(course: Course) {
-    this.exampleCourses.unshift(course);
+    this.courses.unshift(course);
   }
 
   editCourse(course: Course) {
@@ -36,10 +36,16 @@ export class CoursesScreenComponent {
   }
 
   deleteCourse(course: Course) {
-    const index = this.exampleCourses.indexOf(course);
+
+    // Find where the course number matches
+    
+    const index = this.courses.indexOf(course);
     if (index !== -1) {
-      this.exampleCourses.splice(index, 1);
+      this.courses.splice(index, 1);
     }
+
+    console.log('Deleting course:', course);
+    console.log('Courses:', this.courses);
   }
 
 }

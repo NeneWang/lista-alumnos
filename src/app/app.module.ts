@@ -26,6 +26,7 @@ import { CoursesScreenComponent } from './pages/courses-screen/courses-screen.co
 import { HomeScreenComponent } from './pages/home-screen/home-screen.component';
 import { StudentListComponent } from './student-list/student-list.component';
 import { CourseFormComponent } from './course-form/course-form.component';
+import { CourseListComponent } from './course-list/course-list.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { CourseFormComponent } from './course-form/course-form.component';
     CoursesScreenComponent,
     HomeScreenComponent,
     StudentListComponent,
-    CourseFormComponent
+    CourseFormComponent,
+    CourseListComponent
   ],
   imports: [
     BrowserModule,

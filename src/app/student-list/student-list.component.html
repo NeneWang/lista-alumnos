@@ -1,4 +1,4 @@
-<mat-table [dataSource]="students" class="mat-elevation-z8">
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
     <mat-cell *matCellDef="let student">{{ student.name }}</mat-cell>
@@ -7,6 +7,18 @@
   <ng-container matColumnDef="major">
     <mat-header-cell *matHeaderCellDef>major</mat-header-cell>
     <mat-cell *matCellDef="let student">{{ student.major }}</mat-cell>
+  </ng-container>
+
+  
+  <ng-container matColumnDef="average">
+    <mat-header-cell *matHeaderCellDef>average</mat-header-cell>
+    <mat-cell *matCellDef="let student">{{ student.average }}</mat-cell>
+  </ng-container>
+
+  
+  <ng-container matColumnDef="minor">
+    <mat-header-cell *matHeaderCellDef>minor</mat-header-cell>
+    <mat-cell *matCellDef="let student">{{ student.minor }}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="actions">
