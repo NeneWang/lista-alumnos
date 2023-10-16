@@ -35,6 +35,7 @@ import { FullNamePipe } from './full-name.pipe';
 import { Font20Directive } from './font20.directive';
 import { UserEditFormComponent } from './user-edit-form/user-edit-form.component';
 
+import { FormsModule } from '@angular/forms'; // Import FormsModule
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { UserEditFormComponent } from './user-edit-form/user-edit-form.component
     MatTableModule,
     MatIconModule,
     MatListModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
