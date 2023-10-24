@@ -35,7 +35,8 @@ import { FullNamePipe } from './full-name.pipe';
 import { Font20Directive } from './font20.directive';
 import { UserEditFormComponent } from './user-edit-form/user-edit-form.component';
 
-import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { FormsModule } from '@angular/forms';
+import { StudentDetailComponent } from './pages/student-detail/student-detail.component'; // Import FormsModule
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { FormsModule } from '@angular/forms'; // Import FormsModule
     FullNamePipe,
     Font20Directive,
     UserEditFormComponent,
+    StudentDetailComponent,
   ],
   imports: [
     BrowserModule,
