@@ -11,32 +11,7 @@ export class StudentsScreenComponent {
 
   title = 'lista-alumnos';
 
-  students: Student[] = [
-    {
-      "name": "John",
-      "lastName": "Doe",
-      "average": "9.2",
-      "major": "Computer Science",
-      "minor": "Mathematics",
-      "credits": "120"
-    },
-    {
-      "name": "Jane",
-      "lastName": "Doe",
-      "average": "8.7",
-      "major": "Biology",
-      "minor": "Chemistry",
-      "credits": "90"
-    },
-    {
-      "name": "Michael",
-      "lastName": "Johnson",
-      "average": "7.5",
-      "major": "History",
-      "minor": "Political Science",
-      "credits": "75"
-    }
-  ]
+  students: Student[] = [];
 
   selectedStudent?: Student = {
     "name": "Michael",
@@ -47,6 +22,8 @@ export class StudentsScreenComponent {
     "credits": "75"
   };
 //  @ViewChild('childRef', { static: false }) childComponent: ChildComponent;
+
+  
 
   @ViewChild('studentList', { static: false }) studentList: StudentListComponent | undefined;
 

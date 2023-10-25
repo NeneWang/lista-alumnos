@@ -2,9 +2,18 @@
 (studentChange)="onStudentAdded($event)"
 ></app-user-form>
 
+<app-student-list-obs>
+
+</app-student-list-obs>
+
+<!-- <pre>
+  {{ students | json }}
+  
+</pre>
+
 <app-student-list
   #studentList
   [students]="students"
   (editStudentEvent)="editStudent($event)"
   (deleteStudentEvent)="deleteStudent($event)"
-></app-student-list>
+></app-student-list> -->

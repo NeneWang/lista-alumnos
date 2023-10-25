@@ -36,7 +36,8 @@ import { Font20Directive } from './font20.directive';
 import { UserEditFormComponent } from './user-edit-form/user-edit-form.component';
 
 import { FormsModule } from '@angular/forms';
-import { StudentDetailComponent } from './pages/student-detail/student-detail.component'; // Import FormsModule
+import { StudentDetailComponent } from './pages/student-detail/student-detail.component';
+import { StudentListObsComponent } from './student-list-obs/student-list-obs.component'; // Import FormsModule
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { StudentDetailComponent } from './pages/student-detail/student-detail.co
     Font20Directive,
     UserEditFormComponent,
     StudentDetailComponent,
+    StudentListObsComponent,
   ],
   imports: [
     BrowserModule,

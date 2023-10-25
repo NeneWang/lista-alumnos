@@ -2,6 +2,8 @@
 
 import { Component, Input, Output, EventEmitter, SimpleChanges, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Student, StudentsService } from '../students.service';
+
 
 @Component({
   selector: 'app-student-list',
@@ -9,17 +11,18 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./student-list.component.scss'],
 })
 export class StudentListComponent {
-  @Input() students: Student[] = [];
+  @Input() students: Student[] = [] || undefined;
   @Output() editStudentEvent = new EventEmitter<Student>();
   @Output() deleteStudentEvent = new EventEmitter<Student>();
   @ViewChild('averageInput') averageInput: any;
 
   displayedColumns: string[] = ['fullname', 'average', 'major', 'minor', 'actions'];
-  majors: string[] = ['Computer Science', 'Electrical Engineering', 'Mechanical Engineering', 'Biology', 'History'];
+  majors: string[] = [];
 
   dataSource: MatTableDataSource<Student>;
 
-  constructor() {
+  constructor(private studentsService: StudentsService) {
+    this.majors = this.studentsService.getMajors();
     this.dataSource = new MatTableDataSource(this.students);
     
   }
@@ -64,12 +67,3 @@ export class StudentListComponent {
 }
 
 
-
-interface Student {
-  name: string;
-  lastName: string;
-  average: string;
-  major: string;
-  minor: string;
-  credits: string;
-}
