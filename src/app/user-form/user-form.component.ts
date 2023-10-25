@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { StudentsService } from '../students.service';
 
 interface Student {
   name: string;
@@ -21,10 +22,13 @@ export class UserFormComponent {
 
   
   userForm: FormGroup;
-  majors: string[] = ['Computer Science', 'Electrical Engineering', 'Mechanical Engineering', 'Biology', 'History'];
+  majors: string[] | undefined = [];
 
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private studentsService: StudentsService) {
+    this.studentsService.getMajorsAsPromise().then((majors) => {
+      this.majors = majors;
+    });
     this.userForm = this.fb.group({
       name: ['', Validators.required],
       lastName: ['', Validators.required],

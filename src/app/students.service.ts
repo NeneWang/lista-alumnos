@@ -54,5 +54,14 @@ export class StudentsService {
   }
 
 
+  getMajorsAsPromise(): Promise<string[] | undefined> {
+    return of(this.majors).pipe(delay(500)).toPromise();
+  }
+
+
+  unsubscribe() {
+    // TODO
+  }
+  
 
 }
