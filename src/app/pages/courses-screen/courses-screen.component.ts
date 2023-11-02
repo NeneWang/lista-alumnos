@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { CourseListComponent } from './../../course-list/course-list.component';
+import { CoursesService } from 'src/app/courses.service';
 
 
 @Component({
@@ -11,22 +12,15 @@ export class CoursesScreenComponent {
 
 
   courses: Course[] = [
-    {
-      'name': 'Introduction to Computer Science',
-      'major': 'Computer Science',
-      'course_number': 'CS101',
-      'credits': 4,
-      'description': 'This course introduces students to the fundamentals of computer science and programming.'
-    },
-    {
-      'name': 'Introduction to Biology',
-      'major': 'Biology',
-      'course_number': 'BIO101',
-      'credits': 4,
-      'description': 'This course introduces students to the fundamentals of biology and the scientific method.'
-    }
 
   ]
+
+  constructor(private courseService: CoursesService) {
+    this.courseService.getCourses().subscribe(courses => {
+      this.courses = courses;
+    });
+  }
+  
 
   @ViewChild('courseList', { static: false }) courseList: CourseListComponent | undefined;
 
