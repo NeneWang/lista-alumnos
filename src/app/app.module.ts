@@ -21,9 +21,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
-
-import { NavbarComponent } from './navbar/navbar.component';
-import { AboutScreenComponent } from './pages/about-screen/about-screen.component';
 import { StudentsScreenComponent } from './pages/students-screen/students-screen.component';
 import { CoursesScreenComponent } from './pages/courses-screen/courses-screen.component';
 import { HomeScreenComponent } from './pages/home-screen/home-screen.component';
@@ -35,10 +32,15 @@ import { FullNamePipe } from './full-name.pipe';
 import { Font20Directive } from './font20.directive';
 import { UserEditFormComponent } from './user-edit-form/user-edit-form.component';
 
-import { FormsModule } from '@angular/forms';
+// import { FormsModule } from '@angular/forms';
+import { SharedModule } from './shared/shared.module';
+
 import { StudentDetailComponent } from './pages/student-detail/student-detail.component';
 import { StudentListObsComponent } from './student-list-obs/student-list-obs.component';
 import { StudentListSubsComponent } from './student-list-subs/student-list-subs.component'; // Import FormsModule
+
+
+
 
 @NgModule({
   declarations: [
@@ -47,8 +49,6 @@ import { StudentListSubsComponent } from './student-list-subs/student-list-subs.
     UserFormComponent,
     AcademicStatusPipe,
     LayoutComponent,
-    NavbarComponent,
-    AboutScreenComponent,
     StudentsScreenComponent,
     CoursesScreenComponent,
     HomeScreenComponent,
@@ -75,7 +75,7 @@ import { StudentListSubsComponent } from './student-list-subs/student-list-subs.
     MatIconModule,
     MatListModule,
     BrowserAnimationsModule,
-    FormsModule
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
