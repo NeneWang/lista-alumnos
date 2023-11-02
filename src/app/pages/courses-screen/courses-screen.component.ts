@@ -20,14 +20,13 @@ export class CoursesScreenComponent {
       this.courses = courses;
     });
   }
-  
+
 
   @ViewChild('courseList', { static: false }) courseList: CourseListComponent | undefined;
 
   onCourseAdded(course: Course) {
-    this.courses.unshift(course);
+    this.courseService.addCourse(course);
     this.courseList?.addCourse();
-
   }
 
   editCourse(course: Course) {
@@ -37,14 +36,8 @@ export class CoursesScreenComponent {
   deleteCourse(course: Course) {
 
     // Find where the course number matches
-    
-    const index = this.courses.indexOf(course);
-    if (index !== -1) {
-      this.courses.splice(index, 1);
-    }
+    this.courseService.deleteCourse(course);
 
-    console.log('Deleting course:', course);
-    console.log('Courses:', this.courses);
   }
 
 }
