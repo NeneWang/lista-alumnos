@@ -1,16 +1,27 @@
 <div>
-    <div>
-        <h2>List of Students (Using Subscription)</h2>
-        <ul>
-          <li *ngFor="let student of students">
-            Name: {{ student.name }}<br>
-            Last Name: {{ student.lastName }}<br>
-            Average: {{ student.average }}<br>
-            Major: {{ student.major }}<br>
-            Minor: {{ student.minor }}<br>
-            Credits: {{ student.credits }}
-          </li>
-        </ul>
-      </div>
-      
+  <div>
+
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Average</th>
+            <th>Major</th>
+            <th>Minor</th>
+            <th>Credits</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of students">
+            <td>{{ student.name }}</td>
+            <td>{{ student.average }}</td>
+            <td>{{ student.major }}</td>
+            <td>{{ student.minor }}</td>
+            <td>{{ student.credits }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

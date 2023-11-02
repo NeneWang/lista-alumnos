@@ -58,6 +58,17 @@ export class StudentsService {
     return of(this.majors).pipe(delay(500)).toPromise();
   }
 
+  addStudent(student: Student) {
+    this.students.unshift(student);
+  }
+
+  deleteStudent(student: Student) {
+    const index = this.students.indexOf(student);
+    if (index !== -1) {
+      this.students.splice(index, 1);
+    }
+  }
+
 
   unsubscribe() {
     // TODO

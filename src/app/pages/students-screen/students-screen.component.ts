@@ -1,3 +1,4 @@
+import { StudentsService } from './../../students.service';
 import { Component, ViewChild } from '@angular/core';
 import { StudentListComponent } from 'src/app/student-list/student-list.component';
 
@@ -23,7 +24,10 @@ export class StudentsScreenComponent {
   };
 //  @ViewChild('childRef', { static: false }) childComponent: ChildComponent;
 
-  
+  constructor(private studentsService: StudentsService){
+    // this.students = this.studentsService.getStudents();    
+  }
+
 
   @ViewChild('studentList', { static: false }) studentList: StudentListComponent | undefined;
 
@@ -31,6 +35,8 @@ export class StudentsScreenComponent {
     this.students = [student, ...this.students];
     console.log("New len of sutdnets", this.students.length)
     this.studentList?.addStudent();
+    this.studentsService.addStudent(student);
+
   }
 
   editStudent(student: Student) {
