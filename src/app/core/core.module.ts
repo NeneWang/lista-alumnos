@@ -1,12 +1,9 @@
+// core/core.module.ts
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-
+import { CoursesService } from '../courses.service';
+import { StudentsService } from '../students.service';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  providers: [CoursesService, StudentsService],
 })
-export class CoreModule { }
+export class CoreModule {}

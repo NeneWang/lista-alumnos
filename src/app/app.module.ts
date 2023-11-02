@@ -1,6 +1,6 @@
+import { StudentManagementModule } from './student-management/student-management.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsModule
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,13 +11,6 @@ import { UserFormComponent } from './user-form/user-form.component';
 import { AcademicStatusPipe } from './academic-status.pipe';
 import { LayoutComponent } from './components/layout/layout.component';
 
-import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatTableModule } from '@angular/material/table';
-import { MatIcon, MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -34,10 +27,7 @@ import { UserEditFormComponent } from './user-edit-form/user-edit-form.component
 
 // import { FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
-
-import { StudentDetailComponent } from './pages/student-detail/student-detail.component';
-import { StudentListObsComponent } from './student-list-obs/student-list-obs.component';
-import { StudentListSubsComponent } from './student-list-subs/student-list-subs.component'; // Import FormsModule
+import { CoreModule } from './core/core.module';
 
 
 
@@ -59,23 +49,14 @@ import { StudentListSubsComponent } from './student-list-subs/student-list-subs.
     FullNamePipe,
     Font20Directive,
     UserEditFormComponent,
-    StudentDetailComponent,
-    StudentListObsComponent,
-    StudentListSubsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatTableModule,
-    MatIconModule,
-    MatListModule,
-    BrowserAnimationsModule,
     SharedModule,
+    CoreModule,
+    StudentManagementModule
   ],
   providers: [],
   bootstrap: [AppComponent]
