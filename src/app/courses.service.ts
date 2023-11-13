@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject, tap } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, concatMap, switchMap, tap } from 'rxjs';
 import { environment } from 'src/environments/environment.local';
 
 export interface CourseCreate {
@@ -31,11 +31,11 @@ export class CoursesService {
 
   private coursesSubject: Subject<CourseCreate[]> = new Subject<CourseCreate[]>();
 
-  constructor(private HttpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   getCourses(): Observable<Course[]> {
     // return of(this.courses).pipe(delay(500));
-    this.HttpClient.get<Course[]>(`${environment.baseUrl}/courses`)
+    this.httpClient.get<Course[]>(`${environment.baseUrl}/courses`)
       .subscribe({
         next: (response) => {
           if (!response.length) {
@@ -56,7 +56,7 @@ export class CoursesService {
   }
 
   addCourse(course: CourseCreate): Observable<CourseCreate> {
-    return this.HttpClient.post<CourseCreate>(`${environment.baseUrl}/courses`, course)
+    return this.httpClient.post<CourseCreate>(`${environment.baseUrl}/courses`, course)
       .pipe(
         tap((newCourse) => {
           // this.courses.push(newCourse);
@@ -66,18 +66,18 @@ export class CoursesService {
       );
   }
 
-  deleteCourse(arg_id: number): Observable<void> {
+  deleteCourse(arg_id: number): Observable<Course[]> {
+    console.log(`${environment.baseUrl}/courses/${arg_id}`);
+    console.log("type of arg id", typeof (arg_id));
     
-    return this.HttpClient.delete<void>(`${environment.baseUrl}/courses/${arg_id}`)
-    .pipe(
-      tap(() => {
-        const currentCourses = this._courses$.value;
-        const updatedCourses = currentCourses.filter((course: { id: number; }) => course.id !== arg_id);
-        this._courses$.next(updatedCourses);
-      })
-    )
+    return this.httpClient.delete<void>(`${environment.baseUrl}/courses/${arg_id}`)
+      .pipe(
+        switchMap(() => this.getCourses()), // Use switchMap to refresh the courses list after deletion
+        tap((courses) => {
+          this._courses$.next(courses);
+        })
+      );
   }
-
   generateRandomCourse(): Observable<CourseCreate> {
     const course: CourseCreate = {
       'name': 'Random Course',

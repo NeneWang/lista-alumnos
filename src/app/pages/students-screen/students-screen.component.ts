@@ -31,7 +31,7 @@ export class StudentsScreenComponent {
   onStudentAdded(student: StudentCreate) {
     this.studentsService.addStudent(student).subscribe(
       () => {
-        // Handle successful addition if needed
+        // Handle 
       },
       (error) => {
         console.error('Error adding student:', error);

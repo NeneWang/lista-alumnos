@@ -10,7 +10,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class CourseListComponent {
   @Input() courses: Course[] = [];
   @Output() editCourseEvent = new EventEmitter<Course>();
-  @Output() deleteCourseEvent = new EventEmitter<Course>();
+  @Output() deleteCourseEvent = new EventEmitter<number>();
 
   displayedColumns: string[] = ['name', 'major', 'course_number', 'credits', 'actions'];
   dataSource: MatTableDataSource<Course>;
@@ -35,7 +35,7 @@ export class CourseListComponent {
     this.dataSource._updateChangeSubscription();
   }
 
-  deleteCourse(course: Course) {
+  deleteCourse(course: number) {
 
     this.deleteCourseEvent.emit(course);
     this.dataSource._updateChangeSubscription();
