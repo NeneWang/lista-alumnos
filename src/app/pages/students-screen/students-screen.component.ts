@@ -30,7 +30,7 @@ export class StudentsScreenComponent {
 
   onStudentAdded(student: StudentCreate) {
     this.studentsService.addStudent(student).subscribe(
-      (newStudent) => {
+      () => {
         // Handle successful addition if needed
       },
       (error) => {
@@ -41,7 +41,7 @@ export class StudentsScreenComponent {
   }
 
 
-  editStudent(student: any, id: number) {
+  editStudent(student: Student, id: number) {
     console.log('Editing student:', student, id);
 
   }

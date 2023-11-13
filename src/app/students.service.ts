@@ -42,7 +42,7 @@ export class StudentsService {
   }
 
   getStudents(): Observable<Student[]> {
-    this.httpClient.get<any[]>(`${environment.baseUrl}/students`)
+    this.httpClient.get<Student[]>(`${environment.baseUrl}/students`)
       .subscribe({
         next: (response) => {
           if (!response.length) {

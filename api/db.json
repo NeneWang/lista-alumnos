@@ -72,5 +72,31 @@
       "major": "Central Configuration Producer",
       "id": 5
     }
+  ],
+  "majors": [
+    {
+      "name": "Computer Science",
+      "id": 1
+    },
+    {
+      "name": "Biology",
+      "id": 2
+    },
+    {
+      "name": "Electrical Engineering",
+      "id": 3
+    },
+    {
+      "name": "Mechanical Engineering",
+      "id": 4
+    },
+    {
+      "name": "History",
+      "id": 5
+    },
+    {
+      "name": "Mathematics",
+      "id": 6
+    }
   ]
 }
