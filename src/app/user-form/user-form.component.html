@@ -14,8 +14,8 @@
 
           <div class="form-group">
             <label for="name">Last name*</label>
-            <input type="text" id="lastName" formControlName="lastName" class="form-control" />
-            <div *ngIf="userForm.get('lastName')!.hasError('required') && userForm.get('lastName')!.touched" class="text-danger">
+            <input type="text" id="lastname" formControlName="lastname" class="form-control" />
+            <div *ngIf="userForm.get('lastname')!.hasError('required') && userForm.get('lastname')!.touched" class="text-danger">
               Last name is required
             </div>
           </div>

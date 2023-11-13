@@ -20,6 +20,12 @@ const routes: Routes = [
   },
   { path: 'courses', component: CoursesScreenComponent },
   { path: 'about', component: AboutScreenComponent },
+  {
+    path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+  },
+  {
+    path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+  }
 ];
 
 

@@ -7,13 +7,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
-import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 
 import { MatListModule } from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ReactiveFormsModule } from '@angular/forms';
-
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 import { FormsModule } from '@angular/forms';
 @NgModule({
@@ -28,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     MatToolbarModule,
     MatSidenavModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule,
 
   ],
   exports: [
@@ -44,6 +45,7 @@ import { FormsModule } from '@angular/forms';
     MatListModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
   
   ]
 

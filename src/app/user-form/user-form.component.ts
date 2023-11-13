@@ -1,15 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { StudentsService } from '../students.service';
+import { StudentsService, StudentCreate } from '../students.service';
 
-interface Student {
-  name: string;
-  lastName: string;
-  average: string;
-  major: string;
-  minor: string;
-  credits: string;
-}
 
 @Component({
   selector: 'app-user-form',
@@ -31,7 +23,7 @@ export class UserFormComponent {
     });
     this.userForm = this.fb.group({
       name: ['', Validators.required],
-      lastName: ['', Validators.required],
+      lastname: ['', Validators.required],
       major: ['', Validators.required],
       minor: ['', [Validators.minLength(3)]],
       credits: [0, Validators.required],
@@ -43,13 +35,15 @@ export class UserFormComponent {
   
 
   // @Output() counterChange: EventEmitter<number> = new EventEmitter<number>();
-  @Output() studentChange: EventEmitter<Student> = new EventEmitter<Student>();
+  @Output() studentChange: EventEmitter<StudentCreate> = new EventEmitter<StudentCreate>();
 
   onSubmit() {
     if (this.userForm.valid) {
       // Process the form data (e.g., send it to a server)
       console.log(this.userForm.value);
       this.studentChange.emit(this.userForm.value);
+      // this.studentsService.addStudent(this.userForm.value);
+    
     }
   }
 }

@@ -1,9 +1,24 @@
 import { Injectable } from '@angular/core';
-import { Observable, delay, of } from 'rxjs';
+import { BehaviorSubject, Observable, delay, of, tap } from 'rxjs';
+
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment.local';
+
 
 export interface Student {
+  id: number;
   name: string;
-  lastName: string;
+  lastname: string;
+  average: string;
+  major: string;
+  minor: string;
+  credits: string;
+}
+
+
+export interface StudentCreate {
+  name: string;
+  lastname: string;
   average: string;
   major: string;
   minor: string;
@@ -16,41 +31,31 @@ export interface Student {
 export class StudentsService {
   majors: string[] = ['Computer Science', 'Electrical Engineering', 'Mechanical Engineering', 'Biology', 'History'];
 
-  students: Student[] = [
-    {
-      "name": "John",
-      "lastName": "Doe",
-      "average": "9.2",
-      "major": "Computer Science",
-      "minor": "Mathematics",
-      "credits": "120"
-    },
-    {
-      "name": "Jane",
-      "lastName": "Doe",
-      "average": "8.7",
-      "major": "Biology",
-      "minor": "Chemistry",
-      "credits": "90"
-    },
-    {
-      "name": "Michael",
-      "lastName": "Johnson",
-      "average": "7.5",
-      "major": "History",
-      "minor": "Political Science",
-      "credits": "75"
-    }
-  ]
+
+  public _students$ = new BehaviorSubject<any | null>(null);
+
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   getMajors() {
     return this.majors;
   }
 
   getStudents(): Observable<Student[]> {
-    return of(this.students).pipe(delay(500));
+    this.httpClient.get<any[]>(`${environment.baseUrl}/students`)
+      .subscribe({
+        next: (response) => {
+          if (!response.length) {
+            // alert('NO users found');
+          } else {
+            this._students$.next(response);
+            console.log('response', response)
+          }
+        }
+      });
+
+
+    return this._students$.asObservable();
   }
 
 
@@ -58,21 +63,33 @@ export class StudentsService {
     return of(this.majors).pipe(delay(500)).toPromise();
   }
 
-  addStudent(student: Student) {
-    this.students.unshift(student);
+  addStudent(student: StudentCreate): Observable<Student> {
+    return this.httpClient
+      .post<Student>(`${environment.baseUrl}/students`, student)
+      .pipe(
+        tap((newStudent) => {
+          const currentStudents = this._students$.value;
+          this._students$.next([...currentStudents, newStudent]);
+        })
+      );
   }
 
-  deleteStudent(student: Student) {
-    const index = this.students.indexOf(student);
-    if (index !== -1) {
-      this.students.splice(index, 1);
-    }
-  }
+  deleteStudent(arg_id: number): Observable<void> {
+    console.log(`${environment.baseUrl}/students/${arg_id}`);
 
-
-  unsubscribe() {
-    // TODO
+    return this.httpClient.delete<void>(
+      `${environment.baseUrl}/students/${arg_id}`
+    ).pipe(
+      tap(() => {
+        // Remove the deleted student from the list
+        const currentStudents = this._students$.value;
+        console.log('currentStudents', currentStudents)
+        const updatedStudents = currentStudents.filter((student: { id: number; })=> student.id !== arg_id);
+     
+        console.log('updatedStudents', updatedStudents)
+        this._students$.next(updatedStudents);
+      })
+    );
   }
-  
 
 }

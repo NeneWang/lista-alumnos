@@ -13,7 +13,7 @@ import { Student, StudentsService } from '../students.service';
 export class StudentListComponent {
   @Input() students: Student[] = [] || undefined;
   @Output() editStudentEvent = new EventEmitter<Student>();
-  @Output() deleteStudentEvent = new EventEmitter<Student>();
+  @Output() deleteStudentEvent = new EventEmitter<number>();
   @ViewChild('averageInput') averageInput: any;
 
   displayedColumns: string[] = ['fullname', 'average', 'major', 'minor', 'actions'];
@@ -50,11 +50,10 @@ export class StudentListComponent {
     this.dataSource._updateChangeSubscription();
   }
 
-  deleteStudent(student: Student) {
+  deleteStudent(id: number) {
+    console.log('delete', id)
 
-
-    this.deleteStudentEvent.emit(student);
-    this.dataSource._updateChangeSubscription();
+    this.deleteStudentEvent.emit(id);
   }
 
   onStudentAdded(student: Student) {

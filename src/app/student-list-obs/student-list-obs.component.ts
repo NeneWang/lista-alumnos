@@ -16,12 +16,12 @@ export class StudentListObsComponent {
   studentsFormatted$: Observable<StudentFormatted[]> | undefined;
 
   constructor(private studentsService: StudentsService) {
-    this.students$ = this.studentsService.getStudents();
+    this.students$ = this.studentsService.getStudents(); 
     this.studentsFormatted$ = this.students$.pipe(
       map(students => students.map(student => (
         {
           ...student,
-          fullName: `${student.name} ${student.lastName}`
+          fullName: `${student.name} ${student.lastname}`
         }
       ))),
     );
@@ -29,7 +29,7 @@ export class StudentListObsComponent {
 
   ngOnDestory() {
     if (this.studentsService) {
-      this.studentsService.unsubscribe();
+      // this.studentsService.unsubscribe();
     }
   }
 

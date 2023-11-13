@@ -12,7 +12,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 // import { FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
+import { LoginComponent } from './pages/login/login.component';
 
+import { HttpClientModule } from '@angular/common/http'; 
 
 
 
@@ -21,6 +23,7 @@ import { CoreModule } from './core/core.module';
     AppComponent,
     LayoutComponent,
     SidebarComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,8 @@ import { CoreModule } from './core/core.module';
     NgbModule,
     SharedModule,
     CoreModule,
-    StudentManagementModule
+    StudentManagementModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
