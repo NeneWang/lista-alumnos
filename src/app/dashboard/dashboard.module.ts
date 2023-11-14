@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardHomeComponent } from './dashboard-home/dashboard-home.component';
 import { NotAllowedComponent } from './not-allowed/not-allowed.component';
-import { AuthGuard } from '../auth/auth.guard';
+import { authGuard } from '../auth/auth.guard';
 
 // import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
@@ -14,7 +14,7 @@ import { StudentsScreenComponent } from './students-screen/students-screen.compo
 const routes: Routes = [
   {
     path: '',
-    canActivate: [AuthGuard],
+    canActivate: [authGuard],
     component: DashboardHomeComponent,
   },
   {
