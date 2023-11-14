@@ -33,7 +33,7 @@ export class CoursesScreenComponent {
     console.log('Editing course:', course);
   }
 
-  deleteCourse(course: Course) {
+  deleteCourse(course: number) {
 
     // Find where the course number matches
     this.courseService.deleteCourse(course);

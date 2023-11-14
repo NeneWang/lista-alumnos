@@ -22,7 +22,6 @@ import { FullNamePipe } from '../full-name.pipe';
 import { Font20Directive } from '../font20.directive';
 import { AcademicStatusPipe } from '../academic-status.pipe';
 
-
 @NgModule({
   declarations: [
     StudentListSubsComponent,

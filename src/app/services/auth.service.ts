@@ -41,7 +41,7 @@ export class AuthService {
             const authUser = response[0];
             this._authUser$.next(authUser);
             localStorage.setItem('token', authUser.token);
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/dashboard/students']);
           }
         },
         error: (err) => {
